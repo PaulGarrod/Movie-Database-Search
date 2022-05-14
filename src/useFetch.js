@@ -19,7 +19,20 @@ function useFetch(url) {
         });
     }, [url]);
 
-    return {data, loading, error};
+const refetch = () => {
+    setLoading(true);
+        axios.get(url).then((response) => {
+            setData(response.data.Search);
+        })
+        .catch((err) => {
+            setError(err);
+        })
+        .finally(() => {
+            setLoading(false);
+        });
+}
+
+    return {data, loading, error, refetch};
 }
 
 export default useFetch;
