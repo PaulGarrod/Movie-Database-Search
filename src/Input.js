@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Card from './Card';
 import './Input.css';
 import useFetch from './useFetch';
 
@@ -19,8 +18,16 @@ export const Input = () => {
 
     const handleChange = (event) => {
         newUserInput = event.target.value;
-        console.log(newUserInput);
+        console.log(movies)
     }
+    
+    const movieList = movies ? movies.map(movie =>
+        <div>
+            <h2>{movie.Title}</h2>
+            <p>{movie.Year}</p>
+            <img src={movie.Poster} alt='movie poster'></img>
+        </div>
+    ) : <p>Search Results Displayed Here!!</p>
 
     return (
         <section>
@@ -32,10 +39,10 @@ export const Input = () => {
                 <input type="submit" name="Submit" onClick={updateInput}/>
                 {console.log(userInput)}
             </form>
-            <Card />
             <div className='header-section'>
-                {console.log(movies)}
-                <h2>cards Coming soon!</h2>
+                <div>
+                    {movieList}
+                </div>
             </div>
         </section>
     )
