@@ -22,27 +22,26 @@ export const Input = () => {
     }
     
     const movieList = movies ? movies.map(movie =>
-        <div>
-            <h2>{movie.Title}</h2>
-            <p>{movie.Year}</p>
-            <img src={movie.Poster} alt='movie poster'></img>
+        <div className='movie-card'>
+            <h2 className='movie-card-header'>{movie.Title}</h2>
+            <p className='movie-card-date'>{movie.Year}</p>
+            <img className='movie-card-poster' src={movie.Poster} alt='movie poster'></img>
         </div>
-    ) : <p>Search Results Displayed Here!!</p>
+    ) : <p>No results to display - please search again!</p>
 
     return (
         <section>
             <form className='input-section'>
                 <label>
-                    SEARCH: 
-                    <input type="text" name="movieSearch" defaultValue={userInput} onChange={handleChange}/>
+                    <input className='input-textbox' type="text" name="movieSearch" defaultValue={userInput} onChange={handleChange}/>
                 </label>
-                <input type="submit" name="Submit" onClick={updateInput}/>
-                {console.log(userInput)}
+                <input className='submit-button' type="submit" name="Submit" onClick={updateInput}/>
             </form>
-            <div className='header-section'>
-                <div>
-                    {movieList}
-                </div>
+            <div className='movie-cards'>
+                {userInput && 
+                <h1 className='search-result-display'>Search Results for: {userInput}</h1>
+                }
+                {movieList}
             </div>
         </section>
     )
