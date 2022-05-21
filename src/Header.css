@@ -1,3 +1,11 @@
 .header-title {
     font-size: 72px;
+    background-color: black;
+    color: white;
+    padding: 30px 0px 30px 0px;
 }
+
+.red-letter {
+    color: red;
+}
+

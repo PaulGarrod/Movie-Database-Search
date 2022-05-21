@@ -38,7 +38,7 @@ export const Input = () => {
                 <input className='submit-button' type="submit" name="Submit" onClick={updateInput}/>
             </form>
             <div className='movie-cards'>
-                {userInput && 
+                {userInput &&
                 <h1 className='search-result-display'>Search Results for: {userInput}</h1>
                 }
                 {movieList}
