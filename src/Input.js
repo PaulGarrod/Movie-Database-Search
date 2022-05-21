@@ -32,9 +32,7 @@ export const Input = () => {
     return (
         <section>
             <form className='input-section'>
-                <label>
-                    <input className='input-textbox' type="text" name="movieSearch" defaultValue={userInput} onChange={handleChange}/>
-                </label>
+                <input className='input-textbox' type="text" name="movieSearch" defaultValue={userInput} onChange={handleChange}/>
                 <input className='submit-button' type="submit" name="Submit" onClick={updateInput}/>
             </form>
             <div className='movie-cards'>
